@@ -20,13 +20,11 @@ function setStyle(wrapped, texture, glTexture) {
  * @param {*} context 
  * @returns 
  */
-async function OnRenderSceneConfig(sceneConfig, html, context) {
-  const scene = sceneConfig?.object;
-  const htmlEl = html.get(0);
+async function OnRenderSceneConfig(sceneConfig) {
+  console.log("OnRenderSceneConfig", sceneConfig);
+  const scene = sceneConfig?.document;
+  const htmlEl = sceneConfig?.element;
   if (!scene || !htmlEl) return;
-
-  console.log(htmlEl);
-
 
   if ($(htmlEl).find(`[name="flags.${MODULENAME}.enabled"]`).length > 0) return;
 
